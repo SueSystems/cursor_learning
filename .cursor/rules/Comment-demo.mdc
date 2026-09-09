@@ -1,0 +1,30 @@
+---
+description: Local-only Comments section with validation, sanitization, and visitor notice
+alwaysApply: true
+---
+
+# Comments demo
+
+The Comments section is open to any visitor. No login is required.
+
+## Storage
+
+- Store comments in the visitor’s browser using `localStorage`.
+- Do not use a backend or database.
+- Comments are **not** shared across visitors or devices.
+
+## Form
+
+- The comment form must require both a **name** and a **comment body**.
+- Reject submission if either field is empty.
+
+## Rendering
+
+- Escape/sanitize submitted text before rendering.
+- Never use raw user input or `innerHTML` for comment content.
+
+## Notice
+
+Include a visible notice in the UI:
+
+> Comments are local to this browser only and aren’t shared or permanent.

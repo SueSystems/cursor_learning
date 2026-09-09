@@ -1,0 +1,33 @@
+---
+description: Static profile site structure, allowed files, and page section order
+alwaysApply: true
+---
+
+# Project structure
+
+This is a **static site only**. Keep the project limited to these files:
+
+- `index.html`
+- `styles.css`
+- `script.js`
+
+## Constraints
+
+- Do not add build tools, bundlers, npm packages, or frameworks.
+- Do not add `package.json` unless the user explicitly requests it.
+- All JavaScript must run unmodified in the browser via a plain `<script>` tag (for example `<script src="script.js"></script>`).
+
+## Page layout
+
+Sections in `index.html` must appear in this order:
+
+1. Hero
+2. About
+3. Projects
+4. Skills
+5. Contact
+
+## Navigation
+
+- The navigation bar must be sticky.
+- Nav links must target `#about`, `#projects`, `#skills`, and `#contact`.

@@ -1,0 +1,39 @@
+---
+description: Static site files, section order including Comments, and public-only access
+alwaysApply: true
+---
+
+# Coding standards
+
+This is a **static site**. Required files:
+
+- `index.html`
+- `styles.css`
+- `script.js`
+- `tests/test-runner.html`
+
+## Constraints
+
+- Do not add build tools, bundlers, npm packages, or frameworks.
+- Do not add `package.json` unless the user explicitly requests it.
+- All JavaScript must run directly in the browser via a plain `<script>` tag, unmodified.
+
+## Page layout
+
+Sections in `index.html` must appear in this order:
+
+1. Hero
+2. About
+3. Projects
+4. Skills
+5. Comments
+6. Contact
+
+## Navigation
+
+- The navigation bar must be sticky.
+- Nav links must target `#about`, `#projects`, `#skills`, and `#contact`.
+
+## Access
+
+The site is fully public. Do not add login, authentication, or gated content anywhere.
