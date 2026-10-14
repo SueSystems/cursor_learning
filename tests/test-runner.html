@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio tests</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 720px;
+        margin: 32px auto;
+        padding: 0 16px;
+        line-height: 1.5;
+      }
+      .pass {
+        color: #0a7a32;
+      }
+      .fail {
+        color: #b42318;
+      }
+      li {
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Portfolio test runner</h1>
+    <p id="summary"></p>
+    <ol id="results"></ol>
+    <script src="../script.js"></script>
+    <script>
+      (function () {
+        var results = document.getElementById("results");
+        var passed = 0;
+        var failed = 0;
+
+        function assert(name, condition) {
+          var item = document.createElement("li");
+          item.className = condition ? "pass" : "fail";
+          item.textContent = (condition ? "PASS: " : "FAIL: ") + name;
+          results.appendChild(item);
+          if (condition) {
+            passed += 1;
+          } else {
+            failed += 1;
+          }
+        }
+
+        function fetchOk(path) {
+          return fetch(path, { method: "GET", cache: "no-store" }).then(function (response) {
+            return response.ok;
+          });
+        }
+
+        var api = window.PortfolioComments;
+        var original = localStorage.getItem(api.STORAGE_KEY);
+        localStorage.removeItem(api.STORAGE_KEY);
+
+        assert("validateComment rejects empty name", api.validateComment("", "hello") === false);
+        assert("validateComment rejects empty body", api.validateComment("Ada", "   ") === false);
+        assert("validateComment accepts name and body", api.validateComment("Ada", "Nice site") === true);
+
+        var rejected = api.addComment("", "<img src=x>");
+        assert("addComment rejects incomplete input", rejected.ok === false);
+        assert("storage stays empty after reject", api.getComments().length === 0);
+
+        var saved = api.addComment("<b>Ada</b>", "<img src=x onerror=alert(1)>");
+        assert("addComment stores a valid comment", saved.ok === true);
+
+        var holder = document.createElement("div");
+        api.renderComments(holder);
+        var heading = holder.querySelector("h3");
+        var body = holder.querySelector("p");
+        assert("comment name is rendered with textContent", heading && heading.textContent === "<b>Ada</b>");
+        assert("comment body is rendered with textContent", body && body.textContent === "<img src=x onerror=alert(1)>");
+        assert("render does not create extra HTML from input", holder.querySelectorAll("b, img, script").length === 0);
+
+        Promise.all([
+          fetchOk("../index.html"),
+          fetchOk("../styles.css"),
+          fetchOk("../script.js"),
+        ])
+          .then(function (flags) {
+            assert("index.html is reachable", flags[0]);
+            assert("styles.css is reachable", flags[1]);
+            assert("script.js is reachable", flags[2]);
+            return fetch("../index.html").then(function (response) {
+              return response.text();
+            });
+          })
+          .then(function (html) {
+            assert("page has no login form", !/type=["']password["']/i.test(html) && !/<form[^>]*login/i.test(html));
+            assert("nav links include required hashes", /#about/.test(html) && /#projects/.test(html) && /#skills/.test(html) && /#contact/.test(html));
+            assert("comments section exists", /id=["']comments["']/.test(html));
+            assert("local-only notice is present", html.indexOf("Comments are local to this browser only and aren’t shared or permanent.") !== -1);
+            assert("section order places comments before contact", html.indexOf('id="comments"') < html.indexOf('id="contact"'));
+            assert("no React/Vue/Tailwind/Bootstrap includes", !/react|vue|tailwind|bootstrap/i.test(html));
+          })
+          .catch(function (err) {
+            assert("fetching site files succeeded", false);
+            console.error(err);
+          })
+          .then(function () {
+            if (original === null) {
+              localStorage.removeItem(api.STORAGE_KEY);
+            } else {
+              localStorage.setItem(api.STORAGE_KEY, original);
+            }
+            document.getElementById("summary").textContent =
+              passed + " passed, " + failed + " failed";
+          });
+      })();
+    </script>
+  </body>
+</html>

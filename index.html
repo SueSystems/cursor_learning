@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumaiya Tabassum — Open Source Contributor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="logo" href="#home">ST.</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-inner">
+          <p class="eyebrow">Hi, my name is</p>
+          <h1 class="hero-name">Sumaiya Tabassum.</h1>
+          <p class="hero-role">I'm an <span class="accent">Open Source Contributor</span></p>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-inner">
+          <p class="eyebrow">About me</p>
+          <h2>Building the web, one line at a time</h2>
+          <p class="lead">
+            I'm a developer who loves open source, clean interfaces, and turning ideas into
+            reliable software. I care about accessibility, thoughtful details, and shipping work
+            that people can actually use.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-inner">
+          <p class="eyebrow">Featured work</p>
+          <h2>Projects I've built</h2>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-banner devdash" aria-hidden="true"></div>
+              <div class="project-body">
+                <h3>DevDash Analytics</h3>
+                <p>A powerful dashboard for visualizing developer metrics and activity.</p>
+                <ul class="tags">
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li>Node.js</li>
+                </ul>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-banner playground" aria-hidden="true"></div>
+              <div class="project-body">
+                <h3>API Playground</h3>
+                <p>An interactive tool to test and explore various public APIs.</p>
+                <ul class="tags">
+                  <li class="tag-js">JavaScript</li>
+                  <li class="tag-express">Express</li>
+                  <li class="tag-css">CSS</li>
+                </ul>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-banner taskflow" aria-hidden="true"></div>
+              <div class="project-body">
+                <h3>TaskFlow CLI</h3>
+                <p>A command-line interface for managing tasks and workflows effectively.</p>
+                <ul class="tags">
+                  <li class="tag-python">Python</li>
+                  <li class="tag-click">Click</li>
+                  <li class="tag-sqlite">SQLite</li>
+                </ul>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-banner pixel" aria-hidden="true"></div>
+              <div class="project-body">
+                <h3>Pixel Notes</h3>
+                <p>A minimalist browser-based note-taking application with local storage.</p>
+                <ul class="tags">
+                  <li class="tag-html">HTML</li>
+                  <li class="tag-css-warm">CSS</li>
+                  <li class="tag-js-warm">JavaScript</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-inner">
+          <p class="eyebrow">Skills &amp; tools</p>
+          <h2>Technologies I work with</h2>
+          <div class="skill-grid">
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">HTML / CSS</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">Linux</span>
+            <span class="skill-pill">CI / CD</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="split">
+        <section id="comments">
+          <p class="eyebrow">Guestbook</p>
+          <h2>Leave a comment</h2>
+          <p class="notice">
+            Comments are local to this browser only and aren’t shared or permanent.
+          </p>
+          <form class="panel" id="comment-form" novalidate>
+            <div class="field">
+              <label for="comment-name">Name</label>
+              <input id="comment-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="comment-body">Comment</label>
+              <textarea id="comment-body" name="body" placeholder="Write a comment..." required></textarea>
+            </div>
+            <button class="btn" type="submit">Post Comment</button>
+            <p class="form-status" id="comment-status" role="status"></p>
+          </form>
+          <div class="comment-list" id="comment-list" aria-live="polite"></div>
+        </section>
+
+        <section id="contact">
+          <p class="eyebrow">Get in touch</p>
+          <h2>Let's work together</h2>
+          <form class="panel" id="contact-form" novalidate>
+            <div class="field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="How can I help?" required></textarea>
+            </div>
+            <button class="btn" type="submit">Send Message</button>
+            <p class="form-status" id="contact-status" role="status"></p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Sumaiya Tabassum · Built with open source</p>
+      <ul class="social">
+        <li>
+          <a href="https://github.com" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.32 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6.94 8.5H3.56V21h3.38V8.5zM5.25 3A1.96 1.96 0 1 0 5.26 6.92 1.96 1.96 0 0 0 5.25 3zM20.44 21h-3.37v-6.08c0-1.45-.03-3.31-2.02-3.31-2.02 0-2.33 1.57-2.33 3.2V21H9.35V8.5h3.23v1.71h.05c.45-.85 1.55-1.75 3.19-1.75 3.41 0 4.04 2.24 4.04 5.16V21z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:hello@example.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
