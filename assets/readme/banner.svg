@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Learning Cursor for development</title>
+  <desc id="description">A project banner for Learning Cursor, a practice project for developing with the Cursor AI code editor.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102a43" />
+      <stop offset="100%" stop-color="#1f7a8c" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" fill="url(#background)" />
+  <circle cx="1030" cy="80" r="180" fill="#ffffff" fill-opacity="0.08" />
+  <circle cx="1120" cy="300" r="220" fill="#ffffff" fill-opacity="0.06" />
+  <text x="80" y="155" fill="#ffffff" font-family="Arial, sans-serif" font-size="58" font-weight="700">Learning_Cursor</text>
+  <text x="84" y="215" fill="#d9f0f2" font-family="Arial, sans-serif" font-size="28">Learning Cursor for development</text>
+  <text x="84" y="275" fill="#ffffff" font-family="monospace" font-size="22">HTML5  ·  CSS3  ·  JavaScript  ·  Cursor</text>
+</svg>
